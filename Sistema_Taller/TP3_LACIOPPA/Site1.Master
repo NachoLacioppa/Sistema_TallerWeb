@@ -1,13 +1,12 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="TP3_LACIOPPA.Site1" %>
+﻿<%--SISTEMA EN DESARROLLO--%>
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="TP3_LACIOPPA.Site1" %>
 
 <!DOCTYPE html>
-
 <html>
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>IL TALLER</title>
     <%--<link href="Content/bootstrap.min.css" rel="stylesheet" />--%>
-
     <%--<link href="dist/css/bootstrap.css" rel="stylesheet">--%>
     <%--<link href="styles.css" rel="stylesheet">--%>
     <%--<link href="dist/css/bootstrap.css" rel="stylesheet">--%>
