@@ -30,3 +30,12 @@ E:\REPOS GRALES\TPC-Lacioppa\NEGOCIO\obj\Debug\NEGOCIO.csproj.CoreCompileInputs.
 E:\REPOS GRALES\TPC-Lacioppa\NEGOCIO\obj\Debug\NEGOCIO.csproj.CopyComplete
 E:\REPOS GRALES\TPC-Lacioppa\NEGOCIO\obj\Debug\NEGOCIO.dll
 E:\REPOS GRALES\TPC-Lacioppa\NEGOCIO\obj\Debug\NEGOCIO.pdb
+E:\REPOS\Sistema_Taller\NEGOCIO\bin\Debug\NEGOCIO.dll
+E:\REPOS\Sistema_Taller\NEGOCIO\bin\Debug\NEGOCIO.pdb
+E:\REPOS\Sistema_Taller\NEGOCIO\bin\Debug\DOMINIO.dll
+E:\REPOS\Sistema_Taller\NEGOCIO\bin\Debug\DOMINIO.pdb
+E:\REPOS\Sistema_Taller\NEGOCIO\obj\Debug\NEGOCIO.csprojAssemblyReference.cache
+E:\REPOS\Sistema_Taller\NEGOCIO\obj\Debug\NEGOCIO.csproj.CoreCompileInputs.cache
+E:\REPOS\Sistema_Taller\NEGOCIO\obj\Debug\NEGOCIO.csproj.CopyComplete
+E:\REPOS\Sistema_Taller\NEGOCIO\obj\Debug\NEGOCIO.dll
+E:\REPOS\Sistema_Taller\NEGOCIO\obj\Debug\NEGOCIO.pdb
