@@ -188,6 +188,7 @@ namespace TP3_LACIOPPA
             rep.id = Convert.ToInt32(txtIDReparacion.Text);
             rep.informe = txtInforme.Text;
             rep.presupuesto = Convert.ToSingle(txtPrecioTotal.Text);
+            rep.fecha_entrada = Convert.ToDateTime(txtFechaIng.Text);
 
 
             repn.FinalizarReparacion(rep);

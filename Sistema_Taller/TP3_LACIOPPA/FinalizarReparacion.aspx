@@ -5,13 +5,15 @@
     <center>
         <h2>FINALIZAR REPARACION</h2>
     </center>
-    
+
     <div class="container">
         <div class="form-row">
     <div class="form-group col-md-6">
+        
         <asp:Label Text="Buscar Numero de Orden: " runat="server" />
         <asp:TextBox ID="txtOrden" runat="server" class="form-control" Width="150px" TextMode="Number"></asp:TextBox>
          <asp:TextBox ID="txtIDReparacion" runat="server" Visible="false"></asp:TextBox>
+        
         <br />
          <asp:Button ID="btnBuscarOrden" runat="server" Text="Buscar Orden" class="btn btn-primary" OnClick="btnBuscarOrden_Click" />
     </div>

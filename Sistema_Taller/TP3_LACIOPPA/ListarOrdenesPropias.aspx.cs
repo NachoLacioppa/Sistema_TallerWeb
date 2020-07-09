@@ -11,8 +11,10 @@ namespace TP3_LACIOPPA
 {
     public partial class ListarOrdenesPropias : System.Web.UI.Page
     {
-        public List<Reparaciones> lista3 { get; set; }
+        public List<Reparaciones> lista1 { get; set; }
+        public List<Reparaciones> lista2 { get; set; }
         public List<Reparaciones> lista4 { get; set; }
+        public List<Reparaciones> lista5 { get; set; }
         string validacion1 = null;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,8 +29,14 @@ namespace TP3_LACIOPPA
                 lblidtecnico.Visible = false;
                 lblidtecnico.Text = (string)Session["IDTecnico"].ToString();
 
-                lista3 = rpn.listarRep3(lblidtecnico.Text);
+                //EN REPARACION
+                lista1 = rpn.listarRep1(lblidtecnico.Text);
+                //FINALIZADO A TIEMPO
+                lista2 = rpn.listarRep2(lblidtecnico.Text);
+                //FINALIZADO CON DEMORA
                 lista4 = rpn.listarRep4(lblidtecnico.Text);
+                //FINALIZADO SIN REPARACION
+                lista5 = rpn.listarRep5(lblidtecnico.Text);
             }
         }
     }

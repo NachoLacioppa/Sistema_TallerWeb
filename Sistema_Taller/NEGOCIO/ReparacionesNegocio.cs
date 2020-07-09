@@ -103,14 +103,17 @@ namespace NEGOCIO
             public bool FinalizarReparacion(Reparaciones aux)
             {
             AccesoDatos data = new AccesoDatos();
-            data.prepareStatement("update reparaciones set idestado = 2, informe = @informe, precio = @precio, fecha_salida = @fecha_salida where id = @aux");
+            
+            data.setear_SP("SP_FinalizarReparacion");
+            //data.prepareStatement("update reparaciones set idestado = 2, informe = @informe, precio = @precio, fecha_salida = @fecha_salida where id = @aux");
             //data.agregarParametro("cantidad", aux.cantidad);
-            data.agregarParametro("@aux", aux.id);
+            data.agregarParametro("@fecha_entrada", aux.fecha_entrada);
+            data.agregarParametro("@id", aux.id);
             data.agregarParametro("@informe", aux.informe);
             data.agregarParametro("@precio", aux.presupuesto);
             aux.fecha_salida = DateTime.Now;
             data.agregarParametro("@fecha_salida", aux.fecha_salida);
-           
+
             data.ejecutarAccion();
             data.cerrarConexion();
 
@@ -254,7 +257,7 @@ namespace NEGOCIO
             return rep;
         }
 
-        //LISTA REPARACIONES FINALIZADAS
+        //LISTA REPARACIONES FINALIZADAS A TIEMPO
         public List<Reparaciones> listarRep2()
             {
             //INSTANCIO LA LISTA
@@ -266,6 +269,85 @@ namespace NEGOCIO
             //TIRO LA QUERY
             datos.setearQuery("SELECT * FROM VW_Reparaciones_FinalizadoATiempo");
             //datos.setearQuery("SELECT R.ORDEN, CLI.NOMBRE, CLI.APELLIDO, CLI.TELEFONO, EQ.MARCA, EQ.MODELO, R.PROBLEMA, R.INFORME, R.FECHA_ENTRADA, R.FECHA_SALIDA FROM REPARACIONES AS R INNER JOIN CLIENTES AS CLI ON R.IDCLIENTE = CLI.ID INNER JOIN ESTADOS_REPARACION AS ER ON R.IDESTADO = ER.ID INNER JOIN EQUIPOS AS EQ ON R.IDEQUIPO = EQ.ID WHERE ER.ID = 2");
+            //EJECUTO EL LECTOR
+            datos.ejecutarLector();
+
+            //MIENTRAS EL LECTOR LEA, DEVULVE LOS DATOS (DEBE COINSIDIR CON LA QUERY)
+
+            while (datos.lector.Read())
+            {
+                aux = new Reparaciones();
+                aux.cliente = new Clientes();
+                aux.equipo = new Equipos();
+
+                aux.orden = Convert.ToInt64(datos.lector["ORDEN"]);
+                aux.cliente.nombre = datos.lector["NOMBRE"].ToString();
+                aux.cliente.apellido = datos.lector["APELLIDO"].ToString();
+                aux.cliente.telefono = datos.lector["TELEFONO"].ToString();
+                aux.equipo.marca = datos.lector["MARCA"].ToString();
+                aux.equipo.modelo = datos.lector["MODELO"].ToString();
+                aux.problema = datos.lector["PROBLEMA"].ToString();
+                aux.informe = datos.lector["INFORME"].ToString();
+                aux.fecha_entrada = Convert.ToDateTime(datos.lector["FECHA_ENTRADA"]);
+                aux.fecha_salida = Convert.ToDateTime(datos.lector["FECHA_SALIDA"]);
+
+                lista.Add(aux);
+            }
+            return lista;
+            //datos.cerrarConexion();
+        }
+        //LISTA REPARACIONES FINALIZADAS CON DEMORA
+        public List<Reparaciones> listarRep4()
+        {
+            //INSTANCIO LA LISTA
+            List<Reparaciones> lista = new List<Reparaciones>();
+            //DECLARO EL OBJETO
+            Reparaciones aux;
+            //INSTANCIO LA CONECCION A LA BASE
+            AccesoDatos datos = new AccesoDatos();
+            //TIRO LA QUERY
+            //datos.setearQuery("SELECT * FROM VW_Reparaciones_FinalizadoATiempo");
+            datos.setearQuery("SELECT R.ORDEN, CLI.NOMBRE, CLI.APELLIDO, CLI.TELEFONO, EQ.MARCA, EQ.MODELO, R.PROBLEMA, R.INFORME, R.FECHA_ENTRADA, R.FECHA_SALIDA FROM REPARACIONES AS R INNER JOIN CLIENTES AS CLI ON R.IDCLIENTE = CLI.ID INNER JOIN ESTADOS_REPARACION AS ER ON R.IDESTADO = ER.ID INNER JOIN EQUIPOS AS EQ ON R.IDEQUIPO = EQ.ID WHERE ER.ID = 4");
+            //EJECUTO EL LECTOR
+            datos.ejecutarLector();
+
+            //MIENTRAS EL LECTOR LEA, DEVULVE LOS DATOS (DEBE COINSIDIR CON LA QUERY)
+
+            while (datos.lector.Read())
+            {
+                aux = new Reparaciones();
+                aux.cliente = new Clientes();
+                aux.equipo = new Equipos();
+
+                aux.orden = Convert.ToInt64(datos.lector["ORDEN"]);
+                aux.cliente.nombre = datos.lector["NOMBRE"].ToString();
+                aux.cliente.apellido = datos.lector["APELLIDO"].ToString();
+                aux.cliente.telefono = datos.lector["TELEFONO"].ToString();
+                aux.equipo.marca = datos.lector["MARCA"].ToString();
+                aux.equipo.modelo = datos.lector["MODELO"].ToString();
+                aux.problema = datos.lector["PROBLEMA"].ToString();
+                aux.informe = datos.lector["INFORME"].ToString();
+                aux.fecha_entrada = Convert.ToDateTime(datos.lector["FECHA_ENTRADA"]);
+                aux.fecha_salida = Convert.ToDateTime(datos.lector["FECHA_SALIDA"]);
+
+                lista.Add(aux);
+            }
+            return lista;
+            //datos.cerrarConexion();
+        }
+
+        //LISTA REPARACIONES FINALIZADAS SIN REPARACION
+        public List<Reparaciones> listarRep5()
+        {
+            //INSTANCIO LA LISTA
+            List<Reparaciones> lista = new List<Reparaciones>();
+            //DECLARO EL OBJETO
+            Reparaciones aux;
+            //INSTANCIO LA CONECCION A LA BASE
+            AccesoDatos datos = new AccesoDatos();
+            //TIRO LA QUERY
+            //datos.setearQuery("SELECT * FROM VW_Reparaciones_FinalizadoATiempo");
+            datos.setearQuery("SELECT R.ORDEN, CLI.NOMBRE, CLI.APELLIDO, CLI.TELEFONO, EQ.MARCA, EQ.MODELO, R.PROBLEMA, R.INFORME, R.FECHA_ENTRADA, R.FECHA_SALIDA FROM REPARACIONES AS R INNER JOIN CLIENTES AS CLI ON R.IDCLIENTE = CLI.ID INNER JOIN ESTADOS_REPARACION AS ER ON R.IDESTADO = ER.ID INNER JOIN EQUIPOS AS EQ ON R.IDEQUIPO = EQ.ID WHERE ER.ID = 5");
             //EJECUTO EL LECTOR
             datos.ejecutarLector();
 
@@ -380,7 +462,7 @@ namespace NEGOCIO
         }
 
         //en reparacion
-        public List<Reparaciones> listarRep3(string idtec)
+        public List<Reparaciones> listarRep1(string idtec)
         {
             //INSTANCIO LA LISTA
             List<Reparaciones> lista = new List<Reparaciones>();
@@ -419,7 +501,7 @@ namespace NEGOCIO
             //datos.cerrarConexion();
         }
         //finalizadas
-        public List<Reparaciones> listarRep4(string idtec)
+        public List<Reparaciones> listarRep2(string idtec)
         {
             //INSTANCIO LA LISTA
             List<Reparaciones> lista = new List<Reparaciones>();
@@ -430,6 +512,84 @@ namespace NEGOCIO
             //TIRO LA QUERY
             datos.setearQuery("SELECT R.ORDEN, CLI.NOMBRE, CLI.APELLIDO, CLI.TELEFONO, EQ.MARCA, EQ.MODELO, R.PROBLEMA, R.INFORME, R.FECHA_ENTRADA, R.FECHA_SALIDA FROM REPARACIONES AS R INNER JOIN CLIENTES AS CLI ON R.IDCLIENTE = CLI.ID INNER JOIN ESTADOS_REPARACION AS ER ON R.IDESTADO = ER.ID INNER JOIN EQUIPOS AS EQ ON R.IDEQUIPO = EQ.ID WHERE ER.ID = 2 and R.IDTECNICO = @IDTEC");
             datos.agregarParametro("@IDTEC",idtec);
+            //EJECUTO EL LECTOR
+            datos.ejecutarLector();
+
+            //MIENTRAS EL LECTOR LEA, DEVULVE LOS DATOS (DEBE COINSIDIR CON LA QUERY)
+
+            while (datos.lector.Read())
+            {
+                aux = new Reparaciones();
+                aux.cliente = new Clientes();
+                aux.equipo = new Equipos();
+
+                aux.orden = Convert.ToInt64(datos.lector["ORDEN"]);
+                aux.cliente.nombre = datos.lector["NOMBRE"].ToString();
+                aux.cliente.apellido = datos.lector["APELLIDO"].ToString();
+                aux.cliente.telefono = datos.lector["TELEFONO"].ToString();
+                aux.equipo.marca = datos.lector["MARCA"].ToString();
+                aux.equipo.modelo = datos.lector["MODELO"].ToString();
+                aux.problema = datos.lector["PROBLEMA"].ToString();
+                aux.informe = datos.lector["INFORME"].ToString();
+                aux.fecha_entrada = Convert.ToDateTime(datos.lector["FECHA_ENTRADA"]);
+                aux.fecha_salida = Convert.ToDateTime(datos.lector["FECHA_SALIDA"]);
+
+                lista.Add(aux);
+            }
+            return lista;
+            //datos.cerrarConexion();
+        }
+        //finalizadas CON DEMORA
+        public List<Reparaciones> listarRep4(string idtec)
+        {
+            //INSTANCIO LA LISTA
+            List<Reparaciones> lista = new List<Reparaciones>();
+            //DECLARO EL OBJETO
+            Reparaciones aux;
+            //INSTANCIO LA CONECCION A LA BASE
+            AccesoDatos datos = new AccesoDatos();
+            //TIRO LA QUERY
+            datos.setearQuery("SELECT R.ORDEN, CLI.NOMBRE, CLI.APELLIDO, CLI.TELEFONO, EQ.MARCA, EQ.MODELO, R.PROBLEMA, R.INFORME, R.FECHA_ENTRADA, R.FECHA_SALIDA FROM REPARACIONES AS R INNER JOIN CLIENTES AS CLI ON R.IDCLIENTE = CLI.ID INNER JOIN ESTADOS_REPARACION AS ER ON R.IDESTADO = ER.ID INNER JOIN EQUIPOS AS EQ ON R.IDEQUIPO = EQ.ID WHERE ER.ID = 4 and R.IDTECNICO = @IDTEC");
+            datos.agregarParametro("@IDTEC", idtec);
+            //EJECUTO EL LECTOR
+            datos.ejecutarLector();
+
+            //MIENTRAS EL LECTOR LEA, DEVULVE LOS DATOS (DEBE COINSIDIR CON LA QUERY)
+
+            while (datos.lector.Read())
+            {
+                aux = new Reparaciones();
+                aux.cliente = new Clientes();
+                aux.equipo = new Equipos();
+
+                aux.orden = Convert.ToInt64(datos.lector["ORDEN"]);
+                aux.cliente.nombre = datos.lector["NOMBRE"].ToString();
+                aux.cliente.apellido = datos.lector["APELLIDO"].ToString();
+                aux.cliente.telefono = datos.lector["TELEFONO"].ToString();
+                aux.equipo.marca = datos.lector["MARCA"].ToString();
+                aux.equipo.modelo = datos.lector["MODELO"].ToString();
+                aux.problema = datos.lector["PROBLEMA"].ToString();
+                aux.informe = datos.lector["INFORME"].ToString();
+                aux.fecha_entrada = Convert.ToDateTime(datos.lector["FECHA_ENTRADA"]);
+                aux.fecha_salida = Convert.ToDateTime(datos.lector["FECHA_SALIDA"]);
+
+                lista.Add(aux);
+            }
+            return lista;
+            //datos.cerrarConexion();
+        }
+        //SIN REPARACION
+        public List<Reparaciones> listarRep5(string idtec)
+        {
+            //INSTANCIO LA LISTA
+            List<Reparaciones> lista = new List<Reparaciones>();
+            //DECLARO EL OBJETO
+            Reparaciones aux;
+            //INSTANCIO LA CONECCION A LA BASE
+            AccesoDatos datos = new AccesoDatos();
+            //TIRO LA QUERY
+            datos.setearQuery("SELECT R.ORDEN, CLI.NOMBRE, CLI.APELLIDO, CLI.TELEFONO, EQ.MARCA, EQ.MODELO, R.PROBLEMA, R.INFORME, R.FECHA_ENTRADA, R.FECHA_SALIDA FROM REPARACIONES AS R INNER JOIN CLIENTES AS CLI ON R.IDCLIENTE = CLI.ID INNER JOIN ESTADOS_REPARACION AS ER ON R.IDESTADO = ER.ID INNER JOIN EQUIPOS AS EQ ON R.IDEQUIPO = EQ.ID WHERE ER.ID = 5 and R.IDTECNICO = @IDTEC");
+            datos.agregarParametro("@IDTEC", idtec);
             //EJECUTO EL LECTOR
             datos.ejecutarLector();
 

@@ -11,8 +11,10 @@ namespace TP3_LACIOPPA
 {
     public partial class ListarReparaciones : System.Web.UI.Page
     {
-        public List<Reparaciones> lista2 { get; set; }
         public List<Reparaciones> lista1 { get; set; }
+        public List<Reparaciones> lista2 { get; set; }
+        public List<Reparaciones> lista4 { get; set; }
+        public List<Reparaciones> lista5 { get; set; }
         int validacion = 0;
         string validacion1 = null;
         protected void Page_Load(object sender, EventArgs e)
@@ -30,8 +32,10 @@ namespace TP3_LACIOPPA
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('NO TIENE PERMISO');window.location ='MenuPrincipal.aspx';", true);
                 }
                 ReparacionesNegocio rpn = new ReparacionesNegocio();
-                lista2 = rpn.listarRep2();
                 lista1 = rpn.listarRep1();
+                lista2 = rpn.listarRep2(); 
+                lista4 = rpn.listarRep4();
+                lista5 = rpn.listarRep5();
             }
         }
     }

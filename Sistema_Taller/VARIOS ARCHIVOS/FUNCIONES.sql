@@ -75,14 +75,31 @@ INNER JOIN EQUIPOS AS EQ ON R.IDEQUIPO = EQ.ID
 WHERE ER.ID = 2
 
 
-
-CREATE TRIGGER TR_VerificarReparacion
-on Reparaciones
-BEFORE UPDATE
+CREATE PROCEDURE SP_FinalizarReparacion(
+    @informe VARCHAR(MAX),
+    @precio MONEY,
+    @fecha_salida SMALLDATETIME,
+	@fecha_entrada SMALLDATETIME,
+    @id INT
+	
+)
 AS
 BEGIN
-    IF(DATEDIFF(DAY, '2017/08/25', '2011/08/25'))
+--update reparaciones set idestado = 2, informe = @informe, precio = @precio, fecha_salida = @fecha_salida where id = @aux
+
+        IF(DATEDIFF(DAY,@FECHA_ENTRADA, @FECHA_SALIDA) <= 4)
+			UPDATE REPARACIONES SET IDESTADO = 2, INFORME = @informe, PRECIO = @precio, FECHA_SALIDA = @fecha_salida WHERE ID = @id
+        ELSE IF (DATEDIFF(DAY,@FECHA_ENTRADA, @FECHA_SALIDA) > 4)
+            UPDATE REPARACIONES SET IDESTADO = 4, INFORME = @informe, PRECIO = @precio, FECHA_SALIDA = @fecha_salida WHERE ID = @id
+        IF(@PRECIO = 0)
+        UPDATE REPARACIONES SET IDESTADO = 5, INFORME = @informe, PRECIO = @precio, FECHA_SALIDA = @fecha_salida WHERE ID = @id
 
 END
 
-select * from ESTADOS_REPARACION
+
+
+
+
+
+
+
