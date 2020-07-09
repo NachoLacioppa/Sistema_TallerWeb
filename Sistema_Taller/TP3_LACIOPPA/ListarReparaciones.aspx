@@ -53,7 +53,10 @@
                 <th scope="col">MARCA</th>
                 <th scope="col">MODELO</th>
                 <th scope="col">PROBLEMA</th>
+                <th scope="col">INFORME</th>
                 <th scope="col">ENTRADA</th>
+                <th scope="col">SALIDA</th>
+                <th scope="col">PRESUPUESTO</th>
             </tr>
         </thead>
         <tbody>
@@ -67,7 +70,10 @@
               <td><% = item.equipo.marca %></td>
               <td><% = item.equipo.modelo %></td>
               <td><% = item.problema %></td>
+              <td><% = item.informe %></td>
               <td><% = item.fecha_entrada %></td>
+              <td><% = item.fecha_salida %></td>
+              <td>$<% = item.presupuesto %></td>
             
             </tr>
         <% } %>
@@ -90,6 +96,7 @@
                 <th scope="col">INFORME</th>
                 <th scope="col">ENTRADA</th>
                 <th scope="col">SALIDA</th>
+                <th scope="col">PRESUPUESTO</th>
             </tr>
         </thead>
         <tbody>
@@ -107,6 +114,7 @@
               <td><% = item.informe %></td>
               <td><% = item.fecha_entrada %></td>
               <td><% = item.fecha_salida %></td>
+              <td>$<% = item.presupuesto %></td>
             
             </tr>
         <% } %>
@@ -117,14 +125,17 @@
     <table class="table">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">ORDEN</th>
+               <th scope="col">ORDEN</th>
                 <th scope="col">NOMBRE</th>
                 <th scope="col">APELLIDO</th>
                 <th scope="col">TELEFONO</th>
                 <th scope="col">MARCA</th>
                 <th scope="col">MODELO</th>
                 <th scope="col">PROBLEMA</th>
+                <th scope="col">INFORME</th>
                 <th scope="col">ENTRADA</th>
+                <th scope="col">SALIDA</th>
+                <th scope="col">PRESUPUESTO</th>
             </tr>
         </thead>
         <tbody>
@@ -138,7 +149,10 @@
               <td><% = item.equipo.marca %></td>
               <td><% = item.equipo.modelo %></td>
               <td><% = item.problema %></td>
+              <td><% = item.informe %></td>
               <td><% = item.fecha_entrada %></td>
+              <td><% = item.fecha_salida %></td>
+              <td>$<% = item.presupuesto %></td>
             
             </tr>
         <% } %>

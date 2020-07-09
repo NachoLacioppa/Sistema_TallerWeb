@@ -256,7 +256,7 @@ namespace NEGOCIO
             }
             return rep;
         }
-
+        //***************************************LISTAR TODAS LAS TEPARACIONES***************************************
         //LISTA REPARACIONES FINALIZADAS A TIEMPO
         public List<Reparaciones> listarRep2()
             {
@@ -267,7 +267,8 @@ namespace NEGOCIO
             //INSTANCIO LA CONECCION A LA BASE
             AccesoDatos datos = new AccesoDatos();
             //TIRO LA QUERY
-            datos.setearQuery("SELECT * FROM VW_Reparaciones_FinalizadoATiempo");
+            datos.setear_SP("SP_ListarReparaciones");
+            datos.agregarParametro("@ESTADO_REPARACION", 2);
             //datos.setearQuery("SELECT R.ORDEN, CLI.NOMBRE, CLI.APELLIDO, CLI.TELEFONO, EQ.MARCA, EQ.MODELO, R.PROBLEMA, R.INFORME, R.FECHA_ENTRADA, R.FECHA_SALIDA FROM REPARACIONES AS R INNER JOIN CLIENTES AS CLI ON R.IDCLIENTE = CLI.ID INNER JOIN ESTADOS_REPARACION AS ER ON R.IDESTADO = ER.ID INNER JOIN EQUIPOS AS EQ ON R.IDEQUIPO = EQ.ID WHERE ER.ID = 2");
             //EJECUTO EL LECTOR
             datos.ejecutarLector();
@@ -290,6 +291,7 @@ namespace NEGOCIO
                 aux.informe = datos.lector["INFORME"].ToString();
                 aux.fecha_entrada = Convert.ToDateTime(datos.lector["FECHA_ENTRADA"]);
                 aux.fecha_salida = Convert.ToDateTime(datos.lector["FECHA_SALIDA"]);
+                aux.presupuesto = Convert.ToSingle(datos.lector["PRECIO"]);
 
                 lista.Add(aux);
             }
@@ -306,8 +308,9 @@ namespace NEGOCIO
             //INSTANCIO LA CONECCION A LA BASE
             AccesoDatos datos = new AccesoDatos();
             //TIRO LA QUERY
-            //datos.setearQuery("SELECT * FROM VW_Reparaciones_FinalizadoATiempo");
-            datos.setearQuery("SELECT R.ORDEN, CLI.NOMBRE, CLI.APELLIDO, CLI.TELEFONO, EQ.MARCA, EQ.MODELO, R.PROBLEMA, R.INFORME, R.FECHA_ENTRADA, R.FECHA_SALIDA FROM REPARACIONES AS R INNER JOIN CLIENTES AS CLI ON R.IDCLIENTE = CLI.ID INNER JOIN ESTADOS_REPARACION AS ER ON R.IDESTADO = ER.ID INNER JOIN EQUIPOS AS EQ ON R.IDEQUIPO = EQ.ID WHERE ER.ID = 4");
+            datos.setear_SP("SP_ListarReparaciones");
+            datos.agregarParametro("@ESTADO_REPARACION", 4);
+            //datos.setearQuery("SELECT R.ORDEN, CLI.NOMBRE, CLI.APELLIDO, CLI.TELEFONO, EQ.MARCA, EQ.MODELO, R.PROBLEMA, R.INFORME, R.FECHA_ENTRADA, R.FECHA_SALIDA FROM REPARACIONES AS R INNER JOIN CLIENTES AS CLI ON R.IDCLIENTE = CLI.ID INNER JOIN ESTADOS_REPARACION AS ER ON R.IDESTADO = ER.ID INNER JOIN EQUIPOS AS EQ ON R.IDEQUIPO = EQ.ID WHERE ER.ID = 4");
             //EJECUTO EL LECTOR
             datos.ejecutarLector();
 
@@ -329,6 +332,7 @@ namespace NEGOCIO
                 aux.informe = datos.lector["INFORME"].ToString();
                 aux.fecha_entrada = Convert.ToDateTime(datos.lector["FECHA_ENTRADA"]);
                 aux.fecha_salida = Convert.ToDateTime(datos.lector["FECHA_SALIDA"]);
+                aux.presupuesto = Convert.ToSingle(datos.lector["PRECIO"]);
 
                 lista.Add(aux);
             }
@@ -346,8 +350,9 @@ namespace NEGOCIO
             //INSTANCIO LA CONECCION A LA BASE
             AccesoDatos datos = new AccesoDatos();
             //TIRO LA QUERY
-            //datos.setearQuery("SELECT * FROM VW_Reparaciones_FinalizadoATiempo");
-            datos.setearQuery("SELECT R.ORDEN, CLI.NOMBRE, CLI.APELLIDO, CLI.TELEFONO, EQ.MARCA, EQ.MODELO, R.PROBLEMA, R.INFORME, R.FECHA_ENTRADA, R.FECHA_SALIDA FROM REPARACIONES AS R INNER JOIN CLIENTES AS CLI ON R.IDCLIENTE = CLI.ID INNER JOIN ESTADOS_REPARACION AS ER ON R.IDESTADO = ER.ID INNER JOIN EQUIPOS AS EQ ON R.IDEQUIPO = EQ.ID WHERE ER.ID = 5");
+            datos.setear_SP("SP_ListarReparaciones");
+            datos.agregarParametro("@ESTADO_REPARACION", 5);
+            //datos.setearQuery("SELECT R.ORDEN, CLI.NOMBRE, CLI.APELLIDO, CLI.TELEFONO, EQ.MARCA, EQ.MODELO, R.PROBLEMA, R.INFORME, R.FECHA_ENTRADA, R.FECHA_SALIDA FROM REPARACIONES AS R INNER JOIN CLIENTES AS CLI ON R.IDCLIENTE = CLI.ID INNER JOIN ESTADOS_REPARACION AS ER ON R.IDESTADO = ER.ID INNER JOIN EQUIPOS AS EQ ON R.IDEQUIPO = EQ.ID WHERE ER.ID = 5");
             //EJECUTO EL LECTOR
             datos.ejecutarLector();
 
@@ -369,6 +374,7 @@ namespace NEGOCIO
                 aux.informe = datos.lector["INFORME"].ToString();
                 aux.fecha_entrada = Convert.ToDateTime(datos.lector["FECHA_ENTRADA"]);
                 aux.fecha_salida = Convert.ToDateTime(datos.lector["FECHA_SALIDA"]);
+                aux.presupuesto = Convert.ToSingle(datos.lector["PRECIO"]);
 
                 lista.Add(aux);
             }
@@ -387,8 +393,9 @@ namespace NEGOCIO
             //INSTANCIO LA CONECCION A LA BASE
             AccesoDatos datos = new AccesoDatos();
             //TIRO LA QUERY
-            datos.setearQuery("SELECT * FROM VW_Reparaciones_EnReparacion");
-            //datos.setearQuery("SELECT R.ORDEN, CLI.NOMBRE, CLI.APELLIDO, CLI.TELEFONO, EQ.MARCA, EQ.MODELO, R.PROBLEMA, R.FECHA_ENTRADA FROM REPARACIONES AS R INNER JOIN CLIENTES AS CLI ON R.IDCLIENTE = CLI.ID INNER JOIN ESTADOS_REPARACION AS ER ON R.IDESTADO = ER.ID INNER JOIN EQUIPOS AS EQ ON R.IDEQUIPO = EQ.ID WHERE ER.ID = 1");
+            datos.setear_SP("SP_ListarReparaciones");
+            datos.agregarParametro("@ESTADO_REPARACION", 1);
+            //datos.setearquery("select r.orden, cli.nombre, cli.apellido, cli.telefono, eq.marca, eq.modelo, r.problema, r.fecha_entrada from reparaciones as r inner join clientes as cli on r.idcliente = cli.id inner join estados_reparacion as er on r.idestado = er.id inner join equipos as eq on r.idequipo = eq.id where er.id = 1");
             //EJECUTO EL LECTOR
             datos.ejecutarLector();
 
@@ -407,6 +414,7 @@ namespace NEGOCIO
                 aux.equipo.marca = datos.lector["MARCA"].ToString();
                 aux.equipo.modelo = datos.lector["MODELO"].ToString();
                 aux.problema = datos.lector["PROBLEMA"].ToString();
+                //aux.presupuesto = Convert.ToSingle(datos.lector["PRESUPUESTO"]);
                 aux.fecha_entrada = Convert.ToDateTime(datos.lector["FECHA_ENTRADA"]);
 
                 lista.Add(aux);
@@ -414,6 +422,8 @@ namespace NEGOCIO
             return lista;
             //datos.cerrarConexion();
         }
+
+        //***************************************LISTAR TODAS LAS TEPARACIONES FIN***************************************
 
 
         //VALIDA ORDEN EN REPARACION
@@ -460,8 +470,9 @@ namespace NEGOCIO
             }
             return re;
         }
-
-        //en reparacion
+        //***********************************REPARACIONES PROPIAS DE TECNICOS***********************************//
+        //en reparacion ESPECIFICA TECNICO
+        
         public List<Reparaciones> listarRep1(string idtec)
         {
             //INSTANCIO LA LISTA
@@ -471,8 +482,11 @@ namespace NEGOCIO
             //INSTANCIO LA CONECCION A LA BASE
             AccesoDatos datos = new AccesoDatos();
             //TIRO LA QUERY
-            datos.setearQuery("SELECT R.ORDEN, CLI.NOMBRE, CLI.APELLIDO, CLI.TELEFONO, EQ.MARCA, EQ.MODELO, R.PROBLEMA, R.FECHA_ENTRADA FROM REPARACIONES AS R INNER JOIN CLIENTES AS CLI ON R.IDCLIENTE = CLI.ID INNER JOIN ESTADOS_REPARACION AS ER ON R.IDESTADO = ER.ID INNER JOIN EQUIPOS AS EQ ON R.IDEQUIPO = EQ.ID WHERE ER.ID = 1 and R.IDTECNICO = @IDTEC");
-            datos.agregarParametro("@IDTEC",idtec);
+            datos.setear_SP("SP_ListarReparaciones_Propias");
+            datos.agregarParametro("@IDTEC", idtec);
+            datos.agregarParametro("@ESTADO_REPARACION", 1);
+            //datos.setearQuery("SELECT R.ORDEN, CLI.NOMBRE, CLI.APELLIDO, CLI.TELEFONO, EQ.MARCA, EQ.MODELO, R.PROBLEMA, R.FECHA_ENTRADA FROM REPARACIONES AS R INNER JOIN CLIENTES AS CLI ON R.IDCLIENTE = CLI.ID INNER JOIN ESTADOS_REPARACION AS ER ON R.IDESTADO = ER.ID INNER JOIN EQUIPOS AS EQ ON R.IDEQUIPO = EQ.ID WHERE ER.ID = 1 and R.IDTECNICO = @IDTEC");
+
             //EJECUTO EL LECTOR
             datos.ejecutarLector();
 
@@ -510,8 +524,11 @@ namespace NEGOCIO
             //INSTANCIO LA CONECCION A LA BASE
             AccesoDatos datos = new AccesoDatos();
             //TIRO LA QUERY
-            datos.setearQuery("SELECT R.ORDEN, CLI.NOMBRE, CLI.APELLIDO, CLI.TELEFONO, EQ.MARCA, EQ.MODELO, R.PROBLEMA, R.INFORME, R.FECHA_ENTRADA, R.FECHA_SALIDA FROM REPARACIONES AS R INNER JOIN CLIENTES AS CLI ON R.IDCLIENTE = CLI.ID INNER JOIN ESTADOS_REPARACION AS ER ON R.IDESTADO = ER.ID INNER JOIN EQUIPOS AS EQ ON R.IDEQUIPO = EQ.ID WHERE ER.ID = 2 and R.IDTECNICO = @IDTEC");
-            datos.agregarParametro("@IDTEC",idtec);
+            datos.setear_SP("SP_ListarReparaciones_Propias");
+            datos.agregarParametro("@IDTEC", idtec);
+            datos.agregarParametro("@ESTADO_REPARACION", 2);
+            //datos.setearQuery("SELECT R.ORDEN, CLI.NOMBRE, CLI.APELLIDO, CLI.TELEFONO, EQ.MARCA, EQ.MODELO, R.PROBLEMA, R.INFORME, R.FECHA_ENTRADA, R.FECHA_SALIDA FROM REPARACIONES AS R INNER JOIN CLIENTES AS CLI ON R.IDCLIENTE = CLI.ID INNER JOIN ESTADOS_REPARACION AS ER ON R.IDESTADO = ER.ID INNER JOIN EQUIPOS AS EQ ON R.IDEQUIPO = EQ.ID WHERE ER.ID = 2 and R.IDTECNICO = @IDTEC");
+            //datos.agregarParametro("@IDTEC",idtec);
             //EJECUTO EL LECTOR
             datos.ejecutarLector();
 
@@ -533,6 +550,7 @@ namespace NEGOCIO
                 aux.informe = datos.lector["INFORME"].ToString();
                 aux.fecha_entrada = Convert.ToDateTime(datos.lector["FECHA_ENTRADA"]);
                 aux.fecha_salida = Convert.ToDateTime(datos.lector["FECHA_SALIDA"]);
+                aux.presupuesto = Convert.ToSingle(datos.lector["PRECIO"]);
 
                 lista.Add(aux);
             }
@@ -549,8 +567,11 @@ namespace NEGOCIO
             //INSTANCIO LA CONECCION A LA BASE
             AccesoDatos datos = new AccesoDatos();
             //TIRO LA QUERY
-            datos.setearQuery("SELECT R.ORDEN, CLI.NOMBRE, CLI.APELLIDO, CLI.TELEFONO, EQ.MARCA, EQ.MODELO, R.PROBLEMA, R.INFORME, R.FECHA_ENTRADA, R.FECHA_SALIDA FROM REPARACIONES AS R INNER JOIN CLIENTES AS CLI ON R.IDCLIENTE = CLI.ID INNER JOIN ESTADOS_REPARACION AS ER ON R.IDESTADO = ER.ID INNER JOIN EQUIPOS AS EQ ON R.IDEQUIPO = EQ.ID WHERE ER.ID = 4 and R.IDTECNICO = @IDTEC");
+            datos.setear_SP("SP_ListarReparaciones_Propias");
             datos.agregarParametro("@IDTEC", idtec);
+            datos.agregarParametro("@ESTADO_REPARACION", 4);
+            //datos.setearQuery("SELECT R.ORDEN, CLI.NOMBRE, CLI.APELLIDO, CLI.TELEFONO, EQ.MARCA, EQ.MODELO, R.PROBLEMA, R.INFORME, R.FECHA_ENTRADA, R.FECHA_SALIDA FROM REPARACIONES AS R INNER JOIN CLIENTES AS CLI ON R.IDCLIENTE = CLI.ID INNER JOIN ESTADOS_REPARACION AS ER ON R.IDESTADO = ER.ID INNER JOIN EQUIPOS AS EQ ON R.IDEQUIPO = EQ.ID WHERE ER.ID = 4 and R.IDTECNICO = @IDTEC");
+            //datos.agregarParametro("@IDTEC", idtec);
             //EJECUTO EL LECTOR
             datos.ejecutarLector();
 
@@ -572,6 +593,7 @@ namespace NEGOCIO
                 aux.informe = datos.lector["INFORME"].ToString();
                 aux.fecha_entrada = Convert.ToDateTime(datos.lector["FECHA_ENTRADA"]);
                 aux.fecha_salida = Convert.ToDateTime(datos.lector["FECHA_SALIDA"]);
+                aux.presupuesto = Convert.ToSingle(datos.lector["PRECIO"]);
 
                 lista.Add(aux);
             }
@@ -588,8 +610,11 @@ namespace NEGOCIO
             //INSTANCIO LA CONECCION A LA BASE
             AccesoDatos datos = new AccesoDatos();
             //TIRO LA QUERY
-            datos.setearQuery("SELECT R.ORDEN, CLI.NOMBRE, CLI.APELLIDO, CLI.TELEFONO, EQ.MARCA, EQ.MODELO, R.PROBLEMA, R.INFORME, R.FECHA_ENTRADA, R.FECHA_SALIDA FROM REPARACIONES AS R INNER JOIN CLIENTES AS CLI ON R.IDCLIENTE = CLI.ID INNER JOIN ESTADOS_REPARACION AS ER ON R.IDESTADO = ER.ID INNER JOIN EQUIPOS AS EQ ON R.IDEQUIPO = EQ.ID WHERE ER.ID = 5 and R.IDTECNICO = @IDTEC");
+            datos.setear_SP("SP_ListarReparaciones_Propias");
             datos.agregarParametro("@IDTEC", idtec);
+            datos.agregarParametro("@ESTADO_REPARACION", 5);
+            //datos.setearQuery("SELECT R.ORDEN, CLI.NOMBRE, CLI.APELLIDO, CLI.TELEFONO, EQ.MARCA, EQ.MODELO, R.PROBLEMA, R.INFORME, R.FECHA_ENTRADA, R.FECHA_SALIDA FROM REPARACIONES AS R INNER JOIN CLIENTES AS CLI ON R.IDCLIENTE = CLI.ID INNER JOIN ESTADOS_REPARACION AS ER ON R.IDESTADO = ER.ID INNER JOIN EQUIPOS AS EQ ON R.IDEQUIPO = EQ.ID WHERE ER.ID = 5 and R.IDTECNICO = @IDTEC");
+            //datos.agregarParametro("@IDTEC", idtec);
             //EJECUTO EL LECTOR
             datos.ejecutarLector();
 
@@ -611,12 +636,14 @@ namespace NEGOCIO
                 aux.informe = datos.lector["INFORME"].ToString();
                 aux.fecha_entrada = Convert.ToDateTime(datos.lector["FECHA_ENTRADA"]);
                 aux.fecha_salida = Convert.ToDateTime(datos.lector["FECHA_SALIDA"]);
+                aux.presupuesto = Convert.ToSingle(datos.lector["PRECIO"]);
 
                 lista.Add(aux);
             }
             return lista;
             //datos.cerrarConexion();
         }
+        //***********************************REPARACIONES PROPIAS DE TECNICOS FIN***********************************//
     }
 }
 
