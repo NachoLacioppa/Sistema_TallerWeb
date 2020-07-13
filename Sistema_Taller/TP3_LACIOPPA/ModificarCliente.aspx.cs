@@ -31,6 +31,7 @@ namespace TP3_LACIOPPA
 
             cli = clin.BuscarDNI(txtBuscarMod.Text);
 
+            txtID.Text = Convert.ToInt32(cli.id).ToString();
             txtnombre.Text = cli.nombre;
             txtApellido.Text = cli.apellido;
             txtDNI.Text = cli.dni;
@@ -54,6 +55,7 @@ namespace TP3_LACIOPPA
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('DNI NULO');window.location ='ModificarCliente.aspx';", true);
             }
 
+            cli.id = Convert.ToInt32(txtID.Text);
             cli.nombre = txtnombre.Text;
             cli.apellido = txtApellido.Text;
             cli.dni = txtDNI.Text;

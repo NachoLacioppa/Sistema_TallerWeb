@@ -71,7 +71,10 @@ namespace NEGOCIO
         public bool bajaCliente(Clientes aux)
         {
             AccesoDatos data = new AccesoDatos();
-            data.prepareStatement("update clientes set estado = 0 where DNI = '" + aux.dni + "'");
+            //EN LA TABLA CLIENTES HAY UN TRIGGER QUE ACTUALIZA A 0 EL ESTADO, POR ENDE NO HACE UN BORRADO DE REGISTRO
+            data.prepareStatement("delete from Clientes where DNI = @dni");
+            data.agregarParametro("@dni", aux.dni);
+            //data.prepareStatement("update clientes set estado = 0 where DNI = '" + aux.dni + "'");
             data.ejecutarAccion();
             data.cerrarConexion();
 
@@ -89,7 +92,7 @@ namespace NEGOCIO
 
             //datos.setearQuery("Select id, dni, estado from Clientes where dni = @dni and estado = 1");
             datos.agregarParametro("@dni", dnicliente);
-            datos.setear_SP("SP_BuscarDNI");
+            datos.setear_SP("SP_ValidarDNI");
             datos.ejecutarLector();
             if (datos.lector.Read())
             {
@@ -140,6 +143,8 @@ namespace NEGOCIO
         {
             AccesoDatos data = new AccesoDatos();
             //data.prepareStatement("update clientes set nombre = @nombre, apellido = @apellido, dni = @dni, direccion = @direccion, localidad = @localidad, telefono = @telefono, mail = @mail where dni = '" + aux.dni + "'");
+            
+            data.agregarParametro("@id", aux.id);
             data.agregarParametro("@nombre",aux.nombre);
             data.agregarParametro("@apellido",aux.apellido);
             data.agregarParametro("@dni",aux.dni);
@@ -148,7 +153,9 @@ namespace NEGOCIO
             data.agregarParametro("@telefono",aux.telefono);
             data.agregarParametro("@mail",aux.mail);
             data.agregarParametro("@estado", 1);
+
             data.setear_SP("SP_ModificarCliente");
+
             data.ejecutarAccion();
             data.cerrarConexion();
 

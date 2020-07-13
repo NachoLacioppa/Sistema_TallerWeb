@@ -9,6 +9,7 @@
     
      <div class="form-row">
     <div class="form-group col-md-6">
+         <asp:TextBox ID="txtID" runat="server" class="form-control" type="text" Width="150px" Visible="false"></asp:TextBox>
         <asp:Label Text="Buscar cliente (solo dni)" runat="server" />
         <asp:TextBox ID="txtBuscarMod" runat="server" class="form-control" Width="150px"></asp:TextBox>  
         <asp:Button ID="btnBuscarClienteMod" runat="server" Text="Buscar" class="btn btn-primary" OnClick="btnBuscarClienteMod_Click"/>
