@@ -2,6 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="container">
+
 <form>
     <center>
         <h2>MODIFICAR CLIENTE</h2>
@@ -35,7 +37,9 @@
             <asp:Label Text="Mail" runat="server" />
             <asp:TextBox ID="txtMail" runat="server" class="form-control" type="text" Width="300px"></asp:TextBox>
   </div>
+    <asp:Button ID="btnAtras" runat="server" class="btn btn-warning" Text="ATRAS" OnClick="btnAtras_Click" />
   <asp:Button ID="btnModificarCliente" runat="server" Text="Modificar" class="btn btn-warning" OnClick="btnModificarCliente_Click1"/>
 </form>
 
+    </div>
 </asp:Content>

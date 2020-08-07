@@ -39,3 +39,11 @@ E:\REPOS\Sistema_Taller\NEGOCIO\obj\Debug\NEGOCIO.csproj.CoreCompileInputs.cache
 E:\REPOS\Sistema_Taller\NEGOCIO\obj\Debug\NEGOCIO.csproj.CopyComplete
 E:\REPOS\Sistema_Taller\NEGOCIO\obj\Debug\NEGOCIO.dll
 E:\REPOS\Sistema_Taller\NEGOCIO\obj\Debug\NEGOCIO.pdb
+C:\Users\LENOVO\Desktop\SISTEMA_TALLER\Sistema_Taller\NEGOCIO\bin\Debug\NEGOCIO.dll
+C:\Users\LENOVO\Desktop\SISTEMA_TALLER\Sistema_Taller\NEGOCIO\bin\Debug\NEGOCIO.pdb
+C:\Users\LENOVO\Desktop\SISTEMA_TALLER\Sistema_Taller\NEGOCIO\bin\Debug\DOMINIO.dll
+C:\Users\LENOVO\Desktop\SISTEMA_TALLER\Sistema_Taller\NEGOCIO\bin\Debug\DOMINIO.pdb
+C:\Users\LENOVO\Desktop\SISTEMA_TALLER\Sistema_Taller\NEGOCIO\obj\Debug\NEGOCIO.csprojAssemblyReference.cache
+C:\Users\LENOVO\Desktop\SISTEMA_TALLER\Sistema_Taller\NEGOCIO\obj\Debug\NEGOCIO.csproj.CopyComplete
+C:\Users\LENOVO\Desktop\SISTEMA_TALLER\Sistema_Taller\NEGOCIO\obj\Debug\NEGOCIO.dll
+C:\Users\LENOVO\Desktop\SISTEMA_TALLER\Sistema_Taller\NEGOCIO\obj\Debug\NEGOCIO.pdb

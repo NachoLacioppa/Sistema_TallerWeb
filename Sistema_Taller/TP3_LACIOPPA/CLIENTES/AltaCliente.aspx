@@ -2,9 +2,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="container">
     <center>  
         <h2>AGREGAR NUEVO CLIENTE</h2>
     </center>
+        
 <form>
   <div class="form-row">
     <div class="form-group col-md-6">
@@ -26,7 +28,9 @@
             <asp:Label Text="Mail" runat="server" />
             <asp:TextBox ID="txtMail" runat="server" class="form-control" type="text" Width="300px"></asp:TextBox>
   </div>
+    <asp:Button ID="btnAtras" runat="server" class="btn btn-warning" Text="ATRAS" OnClick="btnAtras_Click" />
   <asp:Button ID="btnAgregarCliente" runat="server" class="btn btn-primary" Text="Cargar Cliente" OnClick="btnAgregarCliente_Click" />
 </form>
+</div>
 
 </asp:Content>

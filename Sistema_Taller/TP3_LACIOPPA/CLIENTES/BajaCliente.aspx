@@ -8,6 +8,7 @@
     <label>Ingrese DNI del cliente:</label>
     <asp:TextBox ID="txtBusquedaCliente" runat="server" class="form-control" Width="150px" ></asp:TextBox>
     <br />
+        <asp:Button ID="btnAtras" runat="server" class="btn btn-warning" Text="ATRAS" OnClick="btnAtras_Click" />
     <asp:Button ID="btnEliminarCliente" runat="server" Text="Eliminar" class="btn btn-danger" OnClick="btnEliminarCliente_Click" />
     </center>
 </asp:Content>

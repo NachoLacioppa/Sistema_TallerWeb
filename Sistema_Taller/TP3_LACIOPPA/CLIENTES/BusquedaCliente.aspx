@@ -2,9 +2,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="container">
+
     <center>
         <h2>LISTADO DE TODOS LOS CLIENTES</h2>
     </center>
+
+      <asp:Button ID="btnAtras" runat="server" class="btn btn-warning" Text="ATRAS" OnClick="btnAtras_Click" />
+
     <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -20,6 +25,7 @@
         <tbody>
     
        <% foreach (var item in listaClientes)
+    
             { %>
             <tr>
              
@@ -34,5 +40,6 @@
         <% } %>
     
     </tbody>
-</table>            
+</table>       
+        </div>
 </asp:Content>

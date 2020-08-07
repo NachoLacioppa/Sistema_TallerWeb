@@ -52,7 +52,7 @@ namespace TP3_LACIOPPA
 
             if (string.IsNullOrEmpty(txtDNI.Text))
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('DNI NULO');window.location ='ModificarCliente.aspx';", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('DNI NULO');window.location ='MenuPrincipal.aspx';", true);
             }
 
             cli.id = Convert.ToInt32(txtID.Text);
@@ -66,6 +66,11 @@ namespace TP3_LACIOPPA
 
             clin.ModificarCliente(cli);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('CLIENTE MODIFICADO');window.location ='MenuPrincipal.aspx';", true);
+        }
+
+        protected void btnAtras_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/MenuPrincipal.aspx");
         }
     }
 }

@@ -28,5 +28,10 @@ namespace TP3_LACIOPPA
                 listaClientes = negocio.listar();
             }
         }
+
+        protected void btnAtras_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/MenuPrincipal.aspx");
+        }
     }
 }

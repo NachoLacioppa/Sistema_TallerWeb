@@ -31,7 +31,7 @@ namespace TP3_LACIOPPA
 
             if (String.IsNullOrEmpty(txtDNI.Text))
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('DNI NULO');window.location ='AltaCliente.aspx';", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('DNI NULO');window.location ='MenuPrincipal.aspx';", true);
             }
             else
             {
@@ -54,6 +54,11 @@ namespace TP3_LACIOPPA
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('DNI REPETIDO');window.location ='MenuPrincipal.aspx';", true);
                 }
             }
+        }
+
+        protected void btnAtras_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/MenuPrincipal.aspx");
         }
     }
 }

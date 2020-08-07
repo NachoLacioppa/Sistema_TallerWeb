@@ -69,23 +69,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Content Include="AgregarCateogtiasRepuestos.aspx" />
-    <Content Include="AltaCliente.aspx" />
-    <Content Include="AltaRepuesto.aspx" />
+    <Content Include="REPUESTOS\AgregarCateogtiasRepuestos.aspx" />
+    <Content Include="CLIENTES\AltaCliente.aspx" />
+    <Content Include="REPUESTOS\AltaRepuesto.aspx" />
     <Content Include="AltaTecnicos.aspx" />
-    <Content Include="BajaCliente.aspx" />
-    <Content Include="BajaRepuestos.aspx" />
+    <Content Include="CLIENTES\BajaCliente.aspx" />
+    <Content Include="REPUESTOS\BajaRepuestos.aspx" />
     <Content Include="BajaTecnicos.aspx" />
     <Content Include="BuscarOrden.aspx" />
-    <Content Include="BusquedaCliente.aspx" />
-    <Content Include="BusquedaRepuestos.aspx" />
+    <Content Include="CLIENTES\BusquedaCliente.aspx" />
+    <Content Include="REPUESTOS\BusquedaRepuestos.aspx" />
     <Content Include="BusquedaTecnicos.aspx" />
     <Content Include="EquiposCargados.aspx" />
     <Content Include="FinalizarReparacion.aspx" />
     <Content Include="ListarOrdenesPropias.aspx" />
     <Content Include="ListarReparaciones.aspx" />
-    <Content Include="ModificarCliente.aspx" />
-    <Content Include="ModificarRepuestos.aspx" />
+    <Content Include="CLIENTES\ModificarCliente.aspx" />
+    <Content Include="REPUESTOS\ModificarRepuestos.aspx" />
     <Content Include="ModificarTecnico.aspx" />
     <Content Include="NuevaReparacion.aspx" />
     <Content Include="Site1.Master" />
@@ -155,25 +155,25 @@
     <Content Include="Scripts\popper-utils.js.map" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AgregarCateogtiasRepuestos.aspx.cs">
+    <Compile Include="REPUESTOS\AgregarCateogtiasRepuestos.aspx.cs">
       <DependentUpon>AgregarCateogtiasRepuestos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AgregarCateogtiasRepuestos.aspx.designer.cs">
+    <Compile Include="REPUESTOS\AgregarCateogtiasRepuestos.aspx.designer.cs">
       <DependentUpon>AgregarCateogtiasRepuestos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AltaCliente.aspx.cs">
+    <Compile Include="CLIENTES\AltaCliente.aspx.cs">
       <DependentUpon>AltaCliente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AltaCliente.aspx.designer.cs">
+    <Compile Include="CLIENTES\AltaCliente.aspx.designer.cs">
       <DependentUpon>AltaCliente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AltaRepuesto.aspx.cs">
+    <Compile Include="REPUESTOS\AltaRepuesto.aspx.cs">
       <DependentUpon>AltaRepuesto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AltaRepuesto.aspx.designer.cs">
+    <Compile Include="REPUESTOS\AltaRepuesto.aspx.designer.cs">
       <DependentUpon>AltaRepuesto.aspx</DependentUpon>
     </Compile>
     <Compile Include="AltaTecnicos.aspx.cs">
@@ -183,18 +183,18 @@
     <Compile Include="AltaTecnicos.aspx.designer.cs">
       <DependentUpon>AltaTecnicos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="BajaCliente.aspx.cs">
+    <Compile Include="CLIENTES\BajaCliente.aspx.cs">
       <DependentUpon>BajaCliente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="BajaCliente.aspx.designer.cs">
+    <Compile Include="CLIENTES\BajaCliente.aspx.designer.cs">
       <DependentUpon>BajaCliente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="BajaRepuestos.aspx.cs">
+    <Compile Include="REPUESTOS\BajaRepuestos.aspx.cs">
       <DependentUpon>BajaRepuestos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="BajaRepuestos.aspx.designer.cs">
+    <Compile Include="REPUESTOS\BajaRepuestos.aspx.designer.cs">
       <DependentUpon>BajaRepuestos.aspx</DependentUpon>
     </Compile>
     <Compile Include="BajaTecnicos.aspx.cs">
@@ -211,18 +211,18 @@
     <Compile Include="BuscarOrden.aspx.designer.cs">
       <DependentUpon>BuscarOrden.aspx</DependentUpon>
     </Compile>
-    <Compile Include="BusquedaCliente.aspx.cs">
+    <Compile Include="CLIENTES\BusquedaCliente.aspx.cs">
       <DependentUpon>BusquedaCliente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="BusquedaCliente.aspx.designer.cs">
+    <Compile Include="CLIENTES\BusquedaCliente.aspx.designer.cs">
       <DependentUpon>BusquedaCliente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="BusquedaRepuestos.aspx.cs">
+    <Compile Include="REPUESTOS\BusquedaRepuestos.aspx.cs">
       <DependentUpon>BusquedaRepuestos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="BusquedaRepuestos.aspx.designer.cs">
+    <Compile Include="REPUESTOS\BusquedaRepuestos.aspx.designer.cs">
       <DependentUpon>BusquedaRepuestos.aspx</DependentUpon>
     </Compile>
     <Compile Include="BusquedaTecnicos.aspx.cs">
@@ -277,18 +277,18 @@
     <Compile Include="MenuPrincipal.aspx.designer.cs">
       <DependentUpon>MenuPrincipal.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ModificarCliente.aspx.cs">
+    <Compile Include="CLIENTES\ModificarCliente.aspx.cs">
       <DependentUpon>ModificarCliente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ModificarCliente.aspx.designer.cs">
+    <Compile Include="CLIENTES\ModificarCliente.aspx.designer.cs">
       <DependentUpon>ModificarCliente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ModificarRepuestos.aspx.cs">
+    <Compile Include="REPUESTOS\ModificarRepuestos.aspx.cs">
       <DependentUpon>ModificarRepuestos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ModificarRepuestos.aspx.designer.cs">
+    <Compile Include="REPUESTOS\ModificarRepuestos.aspx.designer.cs">
       <DependentUpon>ModificarRepuestos.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModificarTecnico.aspx.cs">
@@ -317,6 +317,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="REPARACIONES\" />
+    <Folder Include="TECNICOS\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />

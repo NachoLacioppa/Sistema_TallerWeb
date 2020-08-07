@@ -25,10 +25,10 @@
     
         <div class="collapse multi-collapse" id="multiCollapseExample1">
       
-         <li><a href="AltaCliente.aspx">Agregar Cliente</a></li>
-     <li>  <a href="BajaCliente.aspx">Eliminar Cliente</a></li>
-     <li> <a href="ModificarCliente.aspx">Modificar Cliente</a></li>
-     <li>  <a href="BusquedaCliente.aspx">Listar Clientes</a></li>
+         <li><a href="CLIENTES\AltaCliente.aspx">Agregar Cliente</a></li>
+     <li>  <a href="CLIENTES\BajaCliente.aspx">Eliminar Cliente</a></li>
+     <li> <a href="CLIENTES\ModificarCliente.aspx">Modificar Cliente</a></li>
+     <li>  <a href="CLIENTES\BusquedaCliente.aspx">Listar Clientes</a></li>
       
     </div>
 
@@ -50,12 +50,12 @@
 
         <div class="collapse multi-collapse" id="multiCollapseExample2">
       
-     <li><a href="AltaRepuesto.aspx">Nuevo Repuesto</a></li>
-     <li>  <a href="BajaRepuestos.aspx">Eliminar Repuestos</a></li>
+     <li><a href="REPUESTOS\AltaRepuesto.aspx">Nuevo Repuesto</a></li>
+     <li>  <a href="REPUESTOS\BajaRepuestos.aspx">Eliminar Repuestos</a></li>
     <%-- <li> <a href="StockRepuestos.aspx">Agregar Stock Repuestos</a></li>--%>
-     <li>  <a href="BusquedaRepuestos.aspx">Listar Repuestos</a></li>
-     <li>  <a href="ModificarRepuestos.aspx">Modificar Repuestos</a></li>
-     <li>  <a href="AgregarCateogtiasRepuestos.aspx">CATEGORIAS</a></li>
+     <li>  <a href="REPUESTOS\BusquedaRepuestos.aspx">Listar Repuestos</a></li>
+     <li>  <a href="REPUESTOS\ModificarRepuestos.aspx">Modificar Repuestos</a></li>
+     <li>  <a href="REPUESTOS\AgregarCateogtiasRepuestos.aspx">CATEGORIAS</a></li>
       </div>
     
 

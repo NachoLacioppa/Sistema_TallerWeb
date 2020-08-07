@@ -32,20 +32,25 @@ namespace TP3_LACIOPPA
             //no existe
             if(dni == null)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('NO EXISTE UN CLIENTE CON ESE DNI');window.location ='BajaCliente.aspx';", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('NO EXISTE UN CLIENTE CON ESE DNI');window.location ='MenuPrincipal.aspx';", true);
             }
             //ya esta eliminado
             else if (dni.estado == false)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('CLIENTE YA ELIMINADO');window.location ='BajaCliente.aspx';", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('CLIENTE YA ELIMINADO');window.location ='MenuPrincipal.aspx';", true);
             }
             //existe y actualiza estado a cero
             else if (dni.estado == true)
             {
                 clin.bajaCliente(dni);
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('CLIENTE ELIMINADO!!!');window.location ='BajaCliente.aspx';", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('CLIENTE ELIMINADO!!!');window.location ='MenuPrincipal.aspx';", true);
                 
             }
+        }
+
+        protected void btnAtras_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/MenuPrincipal.aspx");
         }
     }
 }

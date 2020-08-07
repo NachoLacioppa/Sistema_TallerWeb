@@ -3,7 +3,7 @@ use LACIOPPA_DB
 --VISTA PARA BUSCAR CLIENTES ACTIVOS
 create view VW_Buscar_Clientes AS select nombre, apellido, dni, direccion, localidad, telefono, mail from Clientes where estado = 1
 select * from VW_Buscar_Clientes
-
+GO
 --AGREGAR CLIENTE
 CREATE PROCEDURE SP_InsertarCliente
 (@nombre varchar(30), @apellido varchar(30), @dni varchar(10), @direccion varchar(15), @localidad varchar(15), @telefono varchar(10), @mail varchar(50), @estado bit)
@@ -11,7 +11,7 @@ AS
 BEGIN
 INSERT INTO Clientes VALUES (@nombre, @apellido, @dni, @direccion, @localidad, @telefono, @mail, 1)
 END
-
+GO
 --MODIFICAR CLIENTE
 CREATE PROCEDURE SP_ModificarCliente(
 	@id int,
@@ -29,7 +29,7 @@ BEGIN
 UPDATE CLIENTES SET nombre = @nombre, apellido = @apellido, dni = @dni, direccion = @direccion, localidad = @localidad, telefono = @telefono, mail = @mail , ESTADO = 1
 where id = @id
 END
-
+GO
 --VALIDAR DNI
 CREATE PROCEDURE SP_ValidarDNI(
     @DNI VARCHAR(10)
@@ -39,7 +39,7 @@ BEGIN
 Select id, dni, estado from Clientes where dni = @dni and estado = 1
 END
 
-
+GO
 --DAR DE BAJA CLIENTE
 CREATE TRIGGER TR_BajaClientes
 on CLIENTES
@@ -50,7 +50,7 @@ BEGIN
     select @ID = ID from deleted
     update CLIENTES set ESTADO = 0 where ID = @ID
 END
-
+GO
 --**************************************REPARACIONES**************************************
 CREATE VIEW VW_Reparaciones_EnReparacion
 AS
@@ -61,7 +61,7 @@ INNER JOIN CLIENTES AS CLI ON R.IDCLIENTE = CLI.ID
 INNER JOIN ESTADOS_REPARACION AS ER ON R.IDESTADO = ER.ID 
 INNER JOIN EQUIPOS AS EQ ON R.IDEQUIPO = EQ.ID 
 WHERE ER.ID = 1
-
+GO
 CREATE VIEW VW_Reparaciones_FinalizadoATiempo as
 SELECT R.ORDEN, CLI.NOMBRE, CLI.APELLIDO, CLI.TELEFONO, EQ.MARCA, EQ.MODELO, R.PROBLEMA, R.INFORME, R.FECHA_ENTRADA, R.FECHA_SALIDA 
 FROM REPARACIONES AS R 
@@ -69,7 +69,7 @@ INNER JOIN CLIENTES AS CLI ON R.IDCLIENTE = CLI.ID
 INNER JOIN ESTADOS_REPARACION AS ER ON R.IDESTADO = ER.ID 
 INNER JOIN EQUIPOS AS EQ ON R.IDEQUIPO = EQ.ID 
 WHERE ER.ID = 2
-
+GO
 
 CREATE PROCEDURE SP_FinalizarReparacion(
     @informe VARCHAR(MAX),
@@ -89,7 +89,7 @@ BEGIN
         IF(@PRECIO = 0)
 			UPDATE REPARACIONES SET IDESTADO = 5, INFORME = @informe, PRECIO = @precio, FECHA_SALIDA = @fecha_salida WHERE ID = @id
 END
-
+GO
 CREATE PROCEDURE SP_ListarReparaciones(
 	@ESTADO_REPARACION INT
 )
@@ -110,7 +110,7 @@ else if (@ESTADO_REPARACION = 2 or @ESTADO_REPARACION = 4 or @ESTADO_REPARACION 
 	INNER JOIN EQUIPOS AS EQ ON R.IDEQUIPO = EQ.ID 
 	WHERE ER.ID = @ESTADO_REPARACION
 end
-
+GO
 
 CREATE PROCEDURE SP_ListarReparaciones_Propias(
 	@ESTADO_REPARACION INT,
@@ -137,6 +137,6 @@ else if (@ESTADO_REPARACION = 2 or @ESTADO_REPARACION = 4 or @ESTADO_REPARACION 
 
 end
 
-
+GO
 
 	
